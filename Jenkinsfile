@@ -45,7 +45,8 @@ pipeline {
             environment {
                 CANARY_REPLICAS = 1
             }
-            kubernetesDeploy(
+            steps {
+                kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
                     enableConfigSubstitution: true
